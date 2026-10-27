@@ -18,6 +18,59 @@
             font-family: Arial, sans-serif;
         }
 
+        .language-screen {
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            background: linear-gradient(135deg, #16222a, #3a6073);
+            color: white;
+            text-align: center;
+            scroll-snap-align: start;
+        }
+
+        .language-screen h1 {
+            margin: 0;
+        }
+
+        .language-screen[hidden] {
+            display: none;
+        }
+
+        .language-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .language-options button {
+            min-width: 10rem;
+            padding: 0.9rem 1.25rem;
+            border: 0;
+            border-radius: 0.5rem;
+            background: white;
+            color: #16222a;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .language-options button:hover,
+        .language-options button:focus-visible {
+            background: #e5f4fa;
+            outline: 3px solid #8bd3f2;
+            outline-offset: 3px;
+        }
+
+        #cat-sections[hidden] {
+            display: none;
+        }
+
         .background-section {
             min-height: 100vh;
             min-height: 100svh;
@@ -31,6 +84,25 @@
             background-repeat: no-repeat;
             scroll-snap-align: start;
             scroll-snap-stop: always;
+        }
+
+        .fluffy {
+            position: relative;
+        }
+
+        .fluffy-title {
+            position: absolute;
+            top: 2rem;
+            right: 1.5rem;
+            left: 1.5rem;
+            margin: 0;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            font-weight: 750;
+            line-height: 1.1;
+            text-align: center;
+            text-shadow: 0 2px 12px rgb(0 0 0 / 75%);
         }
 
         .background-section p {
@@ -77,49 +149,79 @@
 </head>
 <body>
     <main>
-        <section class="background-section fluffy">
-            <p>Yo Welcome to my Website</p>
-            <p>This is FLuffy,he loves to sleep and eat.</p>
-            <p>The name fluffy was given to him because of his fluffy fur.</p>
+        <section class="language-screen" id="language-screen" aria-labelledby="language-title">
+            <h1 id="language-title">Welcome/Καλώς ήρθατε</h1>
+            <p>Choose a language / Επιλέξτε γλώσσα</p>
+            <div class="language-options">
+                <button type="button" data-language="en">English</button>
+                <button type="button" data-language="el">Ελληνικά</button>
+            </div>
         </section>
-        <section class="background-section mabrotsoukalos">
-            <p>This is Mabrotsoukalos</p>
-            <p>He is a very calm cat he also loves food.</p>
-            <p>The name was given to him because he has black fur and he is a big cat.</p>
-        </section>
-        <section class="background-section menios">
-            <p>This is Menios</p>
-            <p>He was a very playful and friendly cat.</p>
-            <p>The name was given to him randomly but it represents an ancient greek.</p>
-            <p>He sadly passed away Rest In Peace.</p>
-        </section>
-        <section class="background-section moboros">
-            <p>This is Moboros</p>
-            <p>He is a very moody cat.</p>
-            <p>The name was given to him because he is very angry at times and bites/scratches alot.</p>
-        </section>
-        <section class="background-section paoktsou">
-            <p>This is Paoktsou</p>
-            <p>She was a very curious and energetic cat..</p>
-            <p>The name was given to her because she was black and white which represented a soccer team.</p>
-            <p>She sadly passed away Rest In Peace.</p>
-        </section>
-        <section class="background-section ritsa">
-            <p>This is Ritsa</p>
-            <p>She is a very affectionate yet scared cat.</p>
-            <p>The name was given to her randomly.</p>
-        </section>
-        <section class="background-section thodoras">
-            <p>This is Thodoras</p>
-            <p>He is a very cute and friendly cat.</p>
-            <p>The name was given to him because of my neighbours friend.</p>
-        </section>
-        <section class="background-section puppy">
-            <p>This is puppy.</p>
-            <p>Dont confuse his name for a dog we gave him the name because he followed us around everywhere we went.</p>
-            <p>he was a very playful and well behaved cat.</p>
-            <p>He sadly passed away Rest In Peace.</p>
-        </section>
+        <div id="cat-sections" hidden>
+            <section class="background-section fluffy">
+                <h1 class="fluffy-title" data-en="Hello, this is my website." data-el="Γειά σας αυτή είναι η ιστοσελίδα μου.">Hello, this is my website.</h1>
+                <p data-en="This is Fluffy. He loves to sleep and eat." data-el="Αυτός είναι ο Φλάφι. Του αρέσει να κοιμάται και να τρώει.">This is Fluffy. He loves to sleep and eat.</p>
+                <p data-en="The name Fluffy was given to him because of his fluffy fur." data-el="Το όνομα Φλάφι τού δόθηκε επειδή έχει πολύ αφράτο τρίχωμα.">The name Fluffy was given to him because of his fluffy fur.</p>
+            </section>
+            <section class="background-section mabrotsoukalos">
+                <p data-en="This is Mabrotsoukalos." data-el="Αυτός είναι ο Μαυροτσουκαλος.">This is Mabrotsoukalos.</p>
+                <p data-en="He is a very calm cat, and he also loves food." data-el="Είναι ένας πολύ ήρεμος γάτος και του αρέσει πολύ το φαγητό.">He is a very calm cat, and he also loves food.</p>
+                <p data-en="His name was given to him because he has black fur and is a big cat." data-el="Το όνομά του το πήρε επειδή έχει μαύρο τρίχωμα και είναι μεγαλόσωμος.">His name was given to him because he has black fur and is a big cat.</p>
+            </section>
+            <section class="background-section menios">
+                <p data-en="This is Menios." data-el="Αυτός είναι ο Μένιος.">This is Menios.</p>
+                <p data-en="He was a very playful and friendly cat." data-el="Ήταν ένας πολύ παιχνιδιάρης και φιλικός γάτος.">He was a very playful and friendly cat.</p>
+                <p data-en="His name was chosen at random, but it represents an ancient Greek." data-el="Το όνομά του επιλέχθηκε τυχαία, αλλά παραπέμπει σε έναν αρχαίο Έλληνα.">His name was chosen at random, but it represents an ancient Greek.</p>
+                <p data-en="Sadly, he passed away. Rest in peace." data-el="Δυστυχώς, έφυγε από τη ζωή.">Sadly, he passed away. Rest in peace.</p>
+            </section>
+            <section class="background-section moboros">
+                <p data-en="This is Moboros." data-el="Αυτός είναι ο Μοβόρος.">This is Moboros.</p>
+                <p data-en="He is a very moody cat." data-el="Είναι ένας γάτος με διάθεση πού αλλάζει συνέχεια.">He is a very moody cat.</p>
+                <p data-en="His name was given to him because he can get very angry and often bites or scratches." data-el="Το όνομά του το πήρε επειδή συχνά δαγκώνει ή γρατζουνάει.">His name was given to him because he can get very angry and often bites or scratches.</p>
+            </section>
+            <section class="background-section paoktsou">
+                <p data-en="This is Paoktsou." data-el="Αυτή είναι η Παοκτσού.">This is Paoktsou.</p>
+                <p data-en="She was a very curious and energetic cat." data-el="Ήταν μια πολύ περίεργη και γεμάτη με ενέργεια γάτα.">She was a very curious and energetic cat.</p>
+                <p data-en="Her name was given to her because her black-and-white fur represented a soccer team." data-el="Το όνομά της το πήρε επειδή το ασπρόμαυρο τρίχωμά της θύμιζε μια ποδοσφαιρική ομάδα.(παοκ)">Her name was given to her because her black-and-white fur represented a soccer team.</p>
+                <p data-en="Sadly, she passed away. Rest in peace." data-el="Δυστυχώς, έφυγε από τη ζωή.">Sadly, she passed away. Rest in peace.</p>
+            </section>
+            <section class="background-section ritsa">
+                <p data-en="This is Ritsa." data-el="Αυτή είναι η Ρίτσα.">This is Ritsa.</p>
+                <p data-en="She is an affectionate but easily frightened cat." data-el="Είναι μια τρυφερή γάτα, αλλά φοβάται εύκολα.">She is an affectionate but easily frightened cat.</p>
+                <p data-en="Her name was chosen at random." data-el="Το όνομά της επιλέχθηκε τυχαία.">Her name was chosen at random.</p>
+            </section>
+            <section class="background-section thodoras">
+                <p data-en="This is Thodoras." data-el="Αυτός είναι ο Θοδωράς.">This is Thodoras.</p>
+                <p data-en="He is a very cute and friendly cat." data-el="Είναι ένας πολύ χαριτωμένος και φιλικός γάτος.">He is a very cute and friendly cat.</p>
+                <p data-en="He was named after my neighbour's friend." data-el="Πήρε το όνομά του από έναν φίλο του γείτονά μου.">He was named after my neighbour's friend.</p>
+            </section>
+            <section class="background-section puppy">
+                <p data-en="This is Puppy." data-el="Αυτός είναι ο Πάπι.">This is Puppy.</p>
+                <p data-en="Don't mistake his name for that of a dog. We named him that because he followed us everywhere." data-el="Τον ονομάσαμε έτσι επειδή μας ακολουθούσε παντού.">Don't mistake his name for that of a dog. We named him that because he followed us everywhere.</p>
+                <p data-en="He was a very playful and well-behaved cat." data-el="Ήταν ένας πολύ παιχνιδιάρης και φιλικός γάτος.">He was a very playful and well-behaved cat.</p>
+                <p data-en="Sadly, he passed away. Rest in peace." data-el="Δυστυχώς, έφυγε από τη ζωή.">Sadly, he passed away. Rest in peace.</p>
+            </section>
+        </div>
     </main>
+    <script>
+        const languageScreen = document.querySelector("#language-screen");
+        const catSections = document.querySelector("#cat-sections");
+
+        document.querySelectorAll("[data-language]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const language = button.dataset.language;
+
+                document.documentElement.lang = language;
+                document.querySelectorAll("[data-en][data-el]").forEach((text) => {
+                    text.textContent = text.dataset[language];
+                });
+
+                languageScreen.hidden = true;
+                catSections.hidden = false;
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
 </body>
 </html>
+
